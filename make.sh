@@ -11,6 +11,7 @@ else
 fi
 
 # -e enable \n escape char
+cd src/
 echo -e "\n-------------->> start running ..."
 ./hello
 status=$?
