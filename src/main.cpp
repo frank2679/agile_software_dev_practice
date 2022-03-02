@@ -8,11 +8,14 @@
  * @copyright Copyright (c) 2021
  *
  */
+#include "foo.h"
+
 #include <iostream>
 
-int main()
-{
-
+int main() {
     std::cerr << "hello world" << std::endl;
+    Foo foo;
+    foo.PrintFoo();
+
     return 0;
 }
