@@ -13,9 +13,11 @@
 #include <iostream>
 
 int main() {
-    std::cerr << "hello world" << std::endl;
-    Foo foo;
-    foo.PrintFoo();
+    {
+        std::cout << "\n================ hello world" << std::endl;
+        Foo foo;
+        foo.PrintFoo();
+    }
 
     return 0;
 }
