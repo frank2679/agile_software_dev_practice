@@ -8,4 +8,13 @@ class Foo {
     int PrintFoo();
 };
 
+class Frame {
+  public:
+    int getScore() { return score_; }
+    bool add(int pins) { score_ += pins; }
+
+  private:
+    int score_ = 0;
+};
+
 #endif

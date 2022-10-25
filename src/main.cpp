@@ -10,14 +10,16 @@
  */
 #include "foo.h"
 
+#include "gtest/gtest.h"
 #include <iostream>
 
-int main() {
-    {
-        std::cout << "\n================ hello world" << std::endl;
-        Foo foo;
-        foo.PrintFoo();
-    }
+TEST(TestFrame, testScoreNoThrows) {
+    Frame f;
+    EXPECT_EQ(0, f.getScore());
+}
 
-    return 0;
+TEST(TestFrame, testAddOneThrow) {
+    Frame f;
+    f.add(5);
+    EXPECT_EQ(5, f.getScore());
 }
