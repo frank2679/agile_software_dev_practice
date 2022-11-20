@@ -8,15 +8,6 @@ class Foo {
     int PrintFoo();
 };
 
-class Frame {
-  public:
-    int getScore() { return score_; }
-    bool add(int pins) { score_ += pins; }
-
-  private:
-    int score_ = 0;
-};
-
 class Game {
   public:
     int score();
@@ -27,16 +18,20 @@ class Game {
   private:
     void adjustCurrentFrame(int pins);
     int handleSecondThrow();
+    bool strike(); // 10 in a throw
+    bool spare();  // 10 in two throws
+    int nextBall();
+    int nextTwoBalls();
+    int nextTwoBallsForStrike();
+    int nextBallForSpare();
 
   private:
     int score_ = 0;  // total score
-    int throws_[21]; // max throws in a game
-    int currentThrow_ = 0;
-    int currentFrame_ = 1;
-    bool firstThrow_ = true;
-    int pinsFirstThrow_;
-    int pinsSecondThrow_;
-    int ball_ = 0;
+    int throws_[21]; // max throws in a game, not more than 21
+    int currentThrow_ = 0;   // the next throw
+    int currentFrame_ = 1;   // the frame not finish throw
+    bool firstThrow_ = true; // flag for first throw in a frame
+    int ball_ = 0; // an iterator
 };
 
 #endif

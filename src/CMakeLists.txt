@@ -12,3 +12,7 @@ target_link_libraries(${TESTNAME}
         $<TARGET_FILE:gtest_main>
         pthread # needed by gtest
 )
+
+add_custom_command(TARGET ${TESTNAME} 
+    COMMAND ${TESTNAME}
+    COMMENT "custom execute the demo")
