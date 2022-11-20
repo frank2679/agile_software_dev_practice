@@ -5,11 +5,6 @@
 
 class Scorer {
   public:
-    Scorer() {
-        for (int i = 0; i < 21; i++) {
-            std::cout << throws_[i] << ", ";
-        }
-    }
     void addThrow(int pins);
     int scoreForFrame(int frame); // frame index from 1
 
@@ -22,7 +17,7 @@ class Scorer {
     int nextBallForSpare();
 
   private:
-    int throws_[21];       // max throws in a game, not more than 21
+    int throws_[21] = {0}; // max throws in a game, not more than 21
     int currentThrow_ = 0; // the next throw
     int ball_ = 0;
 };

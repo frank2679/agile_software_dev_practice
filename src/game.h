@@ -13,7 +13,7 @@ class Game {
     void advanceFrame();
 
   private:
-    int currentFrame_ = 1;   // the frame of last throw
+    int currentFrame_ = 0;   // the frame of last throw
     bool firstThrow_ = true; // flag for first throw in a frame
     Scorer itsscorer;
 };

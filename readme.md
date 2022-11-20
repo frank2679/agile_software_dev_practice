@@ -38,8 +38,22 @@ todo
 
 Fix
 1. 改用 make_shared<Game> 或者
-2. 修改 currentFrame_ = 0
+2. 修改 currentFrame_ = 0 或者
+3. 初始化 array 全为0
+```cpp
+    int throws_[21] = {0}; // max throws in a game, not more than 21
+```
 
+疑问是
+1. 为啥 Game g_; 导致 throws_[21] 里面的值是上一个 case 遗留下来的? 
+2. 难道是 make_shared 做了内存清理？
+
+A: 使用指针的做法是 heap，Game g_ 申请的是 stack，可是为啥 heap 的内存就是清零了的？
+
+stack 地址：
+0x561de46450e8
+heap 地址：
+0x5577fbc621e8
 
 ```bash
 [ RUN      ] TestGame.testAddOneThrow
