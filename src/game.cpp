@@ -4,7 +4,7 @@
 #include <iostream>
 
 // get score after the frame finish
-int Game::score() { return itsscorer.scoreForFrame(currentFrame_ - 1); }
+int Game::score() { return itsscorer.scoreForFrame(currentFrame_); }
 
 int Game::scoreForFrame(int frame) { return itsscorer.scoreForFrame(frame); }
 
@@ -28,4 +28,4 @@ void Game::adjustCurrentFrame(int pins) {
     return;
 }
 
-void Game::advanceFrame() { currentFrame_ = std::min(11, currentFrame_ + 1); }
+void Game::advanceFrame() { currentFrame_ = std::min(10, currentFrame_ + 1); }

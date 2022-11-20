@@ -13,6 +13,7 @@ target_link_libraries(${TESTNAME}
         pthread # needed by gtest
 )
 
+# it will execute the command when build the target, if failed, no target is created
 add_custom_command(TARGET ${TESTNAME} 
     COMMAND ${TESTNAME}
     COMMENT "custom execute the demo")

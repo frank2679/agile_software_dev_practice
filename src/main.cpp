@@ -128,6 +128,7 @@ class TestGame : public testing::Test {
 
   private:
     Game g_;
+    // std::shared_ptr<Game> g_ = std::make_shared<Game>();
 };
 
 TEST_F(TestGame, testAddOneThrow) { testAddOneThrow(); }

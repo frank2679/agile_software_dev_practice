@@ -5,6 +5,15 @@ include(CTest)
 enable_testing()
 
 option(TEMPLATE_BUILD_TESTS "Build all tests." ON)
+option(DEFAULT_DEBUG_BUILD_TYPE "Default debug build" OFF)
+
+if(DEFAULT_DEBUG_BUILD_TYPE)
+  message(STATUS "Debug build")
+  set(CMAKE_BUILD_TYPE Debug CACHE STRING "Build type" FORCE)
+else()
+  message(STATUS "Release build")
+  set(CMAKE_BUILD_TYPE Release CACHE STRING "Build type" FORCE)
+endif()
 
 list(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake")
 include("cmake/BuildGoogletest.cmake")

@@ -1,8 +1,15 @@
 #ifndef _SCORER_H_
 #define _SCORER_H_
 
+#include <iostream>
+
 class Scorer {
   public:
+    Scorer() {
+        for (int i = 0; i < 21; i++) {
+            std::cout << throws_[i] << ", ";
+        }
+    }
     void addThrow(int pins);
     int scoreForFrame(int frame); // frame index from 1
 
