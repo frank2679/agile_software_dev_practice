@@ -9,10 +9,7 @@ int Foo::PrintFoo() {
 }
 
 // get score after the frame finish
-int Game::score() {
-    return (currentFrame_ == 10) ? scoreForFrame(currentFrame_)
-                                 : scoreForFrame(currentFrame_ - 1);
-}
+int Game::score() { return scoreForFrame(currentFrame_ - 1); }
 
 bool Game::add(int pins) {
     throws_[currentThrow_++] = pins;
@@ -23,15 +20,14 @@ bool Game::add(int pins) {
 void Game::adjustCurrentFrame(int pins) {
     if (firstThrow_) {
         if (10 == pins)
-            currentFrame_++;
+            advanceFrame();
         else
             firstThrow_ = false;
     } else {
         firstThrow_ = true;
-        currentFrame_++;
+        advanceFrame();
     }
 
-    currentFrame_ = std::min(10, currentFrame_);
     return;
 }
 
@@ -68,3 +64,5 @@ int Game::nextTwoBallsForStrike() {
 }
 
 int Game::nextBallForSpare() { return throws_[ball_ + 2]; }
+
+void Game::advanceFrame() { currentFrame_ = std::min(11, currentFrame_ + 1); }

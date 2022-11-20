@@ -22,14 +22,12 @@ class TestGame : public testing::Test {
         // EXPECT_EQ(5, g_.score()); // not check point when the frame is not
         // complete
         EXPECT_EQ(5, g_.scoreForFrame(1));
-        EXPECT_EQ(1, g_.getCurrentFrame());
     }
 
     void testAddTwoThrowsNoMark() {
         g_.add(5);
         g_.add(4);
         EXPECT_EQ(9, g_.score());
-        EXPECT_EQ(2, g_.getCurrentFrame());
     }
 
     void testFourThrowsNoMark() {
@@ -40,7 +38,6 @@ class TestGame : public testing::Test {
         EXPECT_EQ(18, g_.score());
         EXPECT_EQ(9, g_.scoreForFrame(1));
         EXPECT_EQ(18, g_.scoreForFrame(2));
-        EXPECT_EQ(3, g_.getCurrentFrame());
     }
 
     void testSimpleSpare() {
@@ -48,7 +45,6 @@ class TestGame : public testing::Test {
         g_.add(7);
         g_.add(3);
         EXPECT_EQ(13, g_.scoreForFrame(1));
-        EXPECT_EQ(2, g_.getCurrentFrame());
     }
 
     void testSimpleFrameAfterSpare() {
@@ -58,7 +54,6 @@ class TestGame : public testing::Test {
         g_.add(2);
         EXPECT_EQ(13, g_.scoreForFrame(1));
         EXPECT_EQ(18, g_.scoreForFrame(2));
-        EXPECT_EQ(3, g_.getCurrentFrame());
         EXPECT_EQ(18, g_.score());
     }
 
@@ -67,7 +62,6 @@ class TestGame : public testing::Test {
         g_.add(3);
         g_.add(6);
         EXPECT_EQ(19, g_.scoreForFrame(1));
-        EXPECT_EQ(3, g_.getCurrentFrame());
         EXPECT_EQ(28, g_.score());
     }
 
@@ -76,7 +70,6 @@ class TestGame : public testing::Test {
             g_.add(10);
         }
         EXPECT_EQ(30, g_.scoreForFrame(1));
-        EXPECT_EQ(10, g_.getCurrentFrame());
         EXPECT_EQ(300, g_.score());
     }
 
@@ -88,7 +81,6 @@ class TestGame : public testing::Test {
         g_.add(2);
         g_.add(8);
         g_.add(10);
-        EXPECT_EQ(10, g_.getCurrentFrame());
         EXPECT_EQ(20, g_.scoreForFrame(10));
         EXPECT_EQ(20, g_.score());
     }
